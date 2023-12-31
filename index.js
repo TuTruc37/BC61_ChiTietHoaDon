@@ -147,7 +147,7 @@ tinhTien.onclick = function () {
     var myModal = document.getElementById("exampleModal");
     myModal.style.display = "block";
     myModal.style.opacity = 1;
-    myModal.style.marginTop = "250px";
+    myModal.style.marginTop = "200px";
     myModal.style.overflow = "visible";
     myModal.style.right = "350px";
     console.log(myModal);
