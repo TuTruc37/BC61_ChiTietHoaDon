@@ -140,6 +140,9 @@ tinhTien.onclick = function () {
   }
   //thành tiền km
   var ttkm = tongTien;
+  var ttkm2 = (soKM - 1) * giaTienKmTu1Den19;
+  var ttkm23 = 18 * giaTienKmTu1Den19;
+  var ttkm3 = (soKM - 19) * giaTienKmTu19TroLen;
   //in hoá đơn
   var hoaDon = document.getElementById("inHoaDon");
   console.log(hoaDon);
@@ -171,6 +174,7 @@ tinhTien.onclick = function () {
     saveButton.onclick = function () {
       window.print();
     };
+    updateKm(soKM);
     if (soKM <= 1) {
       document.getElementById("sd_1").innerHTML =
         soKM.toLocaleString({
@@ -198,18 +202,24 @@ tinhTien.onclick = function () {
           currency: "VND",
         }) + "VND";
     } else if (soKM > 1 && soKM < 19) {
-      document.getElementById("sd_2").innerHTML =
-        soKM.toLocaleString({
+      document.getElementById("dg_1").innerHTML =
+        giaTienKmDauTien.toLocaleString({
           style: "currency",
-          currency: "KM",
-        }) + "KM";
+          currency: "VND",
+        }) + "VND";
+      document.getElementById("tt_1").innerHTML =
+        giaTienKmDauTien.toLocaleString({
+          style: "currency",
+          currency: "VND",
+        }) + "VND";
+
       document.getElementById("dg_2").innerHTML =
         giaTienKmTu1Den19.toLocaleString({
           style: "currency",
           currency: "VND",
         }) + "VND";
       document.getElementById("tt_2").innerHTML =
-        ttkm.toLocaleString({
+        ttkm2.toLocaleString({
           style: "currency",
           currency: "VND",
         }) + "VND";
@@ -224,18 +234,33 @@ tinhTien.onclick = function () {
           currency: "VND",
         }) + "VND";
     } else if (soKM >= 19) {
-      document.getElementById("sd_3").innerHTML =
-        soKM.toLocaleString({
+      document.getElementById("dg_1").innerHTML =
+        giaTienKmDauTien.toLocaleString({
           style: "currency",
-          currency: "KM",
-        }) + "KM";
+          currency: "VND",
+        }) + "VND";
+      document.getElementById("tt_1").innerHTML =
+        giaTienKmDauTien.toLocaleString({
+          style: "currency",
+          currency: "VND",
+        }) + "VND";
+      document.getElementById("dg_2").innerHTML =
+        giaTienKmTu1Den19.toLocaleString({
+          style: "currency",
+          currency: "VND",
+        }) + "VND";
+      document.getElementById("tt_2").innerHTML =
+        ttkm23.toLocaleString({
+          style: "currency",
+          currency: "VND",
+        }) + "VND";
       document.getElementById("dg_3").innerHTML =
         giaTienKmTu19TroLen.toLocaleString({
           style: "currency",
           currency: "VND",
         }) + "VND";
       document.getElementById("tt_3").innerHTML =
-        ttkm.toLocaleString({
+        ttkm3.toLocaleString({
           style: "currency",
           currency: "VND",
         }) + "VND";
@@ -319,3 +344,38 @@ function ThoiGianCho(loaiXe) {
     }
   }
 }
+function updateKm(soKM) {
+  var soKM = document.getElementById("txt-km").value * 1;
+  var sd1 = document.getElementById("sd_1");
+  var sd2 = document.getElementById("sd_2");
+  var sd3 = document.getElementById("sd_3");
+
+  var remainingKm = soKM - 1;
+  var remainingKm3 = soKM - 19;
+
+  sd1.innerHTML = "1 KM";
+  if (soKM > 1 && soKM < 19) {
+    sd2.innerHTML = remainingKm;
+  } else {
+    sd3.innerHTML = remainingKm3;
+  }
+  if (remainingKm >= 18) {
+    remainingKm = 18;
+  }
+  else if (remainingKm3 > 19) {
+    sd3.innerHTML = remainingKm3;
+  } else {
+    remainingKm3 = 0;
+  }
+  sd2.innerHTML =
+    remainingKm.toLocaleString({
+      style: "currency",
+      currency: "KM",
+    }) + "KM";
+  sd3.innerHTML =
+    remainingKm3.toLocaleString({
+      style: "currency",
+      currency: "KM",
+    }) + "KM";
+}
+//chú ý là mỗi lần đổi 1 sự lựa chọn xe thì reset lại trang trước nếu không sẽ trùng số liệu cũ 
