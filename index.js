@@ -145,13 +145,32 @@ tinhTien.onclick = function () {
   console.log(hoaDon);
   hoaDon.onclick = function () {
     var myModal = document.getElementById("exampleModal");
+    var closeButton = document.querySelector(".modal-footer .btn-secondary");
+    var closeButtonX = document.querySelector(".close");
+
+    var anInput = document.querySelector(".typeZindex1");
+    anInput.style.zIndex = "0";
+    var anInput2 = document.querySelector(".typeZindex2");
+    anInput2.style.zIndex = "0";
+    var anInput3 = document.querySelector(".typeZindex3");
+    anInput3.style.zIndex = "0";
+    closeButtonX.onclick = function () {
+      myModal.style.display = "none";
+    };
+    closeButton.onclick = function () {
+      myModal.style.display = "none";
+    };
+
     myModal.style.display = "block";
     myModal.style.opacity = 1;
-    myModal.style.marginTop = "200px";
+    myModal.style.paddingTop = "200px";
     myModal.style.overflow = "visible";
-    myModal.style.right = "350px";
+    myModal.style.background = "white";
     console.log(myModal);
-
+    var saveButton = document.querySelector(".modal-footer .btn-primary");
+    saveButton.onclick = function () {
+      window.print();
+    };
     if (soKM <= 1) {
       document.getElementById("sd_1").innerHTML =
         soKM.toLocaleString({
@@ -178,7 +197,6 @@ tinhTien.onclick = function () {
           style: "currency",
           currency: "VND",
         }) + "VND";
-    
     } else if (soKM > 1 && soKM < 19) {
       document.getElementById("sd_2").innerHTML =
         soKM.toLocaleString({
@@ -205,7 +223,6 @@ tinhTien.onclick = function () {
           style: "currency",
           currency: "VND",
         }) + "VND";
-      
     } else if (soKM >= 19) {
       document.getElementById("sd_3").innerHTML =
         soKM.toLocaleString({
@@ -232,7 +249,6 @@ tinhTien.onclick = function () {
           style: "currency",
           currency: "VND",
         }) + "VND";
-      
     }
 
     var formatTongTienXe = waitingTime.toLocaleString({

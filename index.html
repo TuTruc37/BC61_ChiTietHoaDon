@@ -57,14 +57,14 @@
           <span class="contact100-form-title"> TÍNH CƯỚC UBER </span>
           <h2>Vui lòng chọn loại xe:</h2>
           <ul>
-            <li class="type">
+            <li class="type typeZindex1">
               <input type="radio" id="uberX" value="uberCar" name="selector" />
               <label for="uberX">Uber Car</label>
 
               <div class="check"></div>
             </li>
 
-            <li class="type">
+            <li class="type typeZindex2">
               <input
                 type="radio"
                 id="uberSUV"
@@ -75,7 +75,7 @@
               <div class="check"></div>
             </li>
 
-            <li class="type">
+            <li class="type typeZindex3">
               <input
                 type="radio"
                 id="uberBlack"
@@ -138,6 +138,7 @@
             </button>
             <!-- Button trigger modal -->
             <!-- Modal -->
+
             <div
               class="modal fade"
               id="exampleModal"
@@ -148,18 +149,19 @@
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">
+                    <h5 class="modal-title" id="exampleModalLabel">
                       CHI TIẾT HOÁ ĐƠN
-                    </h1>
+                    </h5>
                     <button
                       type="button"
-                      class="btn-close"
-                      data-bs-dismiss="modal"
+                      class="close"
+                      data-dismiss="modal"
                       aria-label="Close"
-                      
-                    ></button>
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
                   </div>
-                  <div class="modal-body">
+                  <div class="modal-body ">
                     <table border="1" height="500px" width="400px">
                       <thead>
                         <tr>
@@ -169,7 +171,7 @@
                           <th>THÀNH TIỀN</th>
                         </tr>
                       </thead>
-                      <tbody>
+                      <tbody >
                         <tr>
                           <td>KM ĐẦU TIÊN</td>
                           <td id="sd_1"></td>
@@ -200,7 +202,9 @@
                       </tbody>
                       <tfoot>
                         <tr>
-                          <td colspan="4" class="text-right" id="Tongtienxe">TỔNG TIỀN</td>
+                          <td colspan="4" class="text-right" id="Tongtienxe">
+                            TỔNG TIỀN
+                          </td>
                         </tr>
                       </tfoot>
                     </table>
@@ -209,13 +213,12 @@
                     <button
                       type="button"
                       class="btn btn-secondary"
-                      data-bs-dismiss="modal"
-                     
+                      data-dismiss="modal"
                     >
-                      Close
+                      Đóng
                     </button>
                     <button type="button" class="btn btn-primary">
-                      Save changes
+                      Lưu thay đổi
                     </button>
                   </div>
                 </div>
@@ -223,6 +226,7 @@
             </div>
           </div>
         </form>
+        <!-- Button trigger modal -->
 
         <div style="clear: both"></div>
         <div id="divThanhTien" class="dongia">
@@ -232,7 +236,11 @@
         </div>
       </div>
     </div>
-
+    <script>
+      $("#myModal").on("shown.bs.modal", function () {
+        $("#myInput").trigger("focus");
+      });
+    </script>
     <!--===============================================================================================-->
     <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
     <!--===============================================================================================-->
