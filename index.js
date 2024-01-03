@@ -143,6 +143,10 @@ tinhTien.onclick = function () {
   var ttkm2 = (soKM - 1) * giaTienKmTu1Den19;
   var ttkm23 = 18 * giaTienKmTu1Den19;
   var ttkm3 = (soKM - 19) * giaTienKmTu19TroLen;
+  if (soKM < 19) {
+    document.getElementById("tt_2").innerHTML = "0 VND";
+    document.getElementById("tt_3").innerHTML = "0 VND";
+  } 
   //in hoá đơn
   var hoaDon = document.getElementById("inHoaDon");
   console.log(hoaDon);
@@ -378,4 +382,3 @@ function updateKm(soKM) {
       currency: "KM",
     }) + "KM";
 }
-
