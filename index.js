@@ -146,7 +146,7 @@ tinhTien.onclick = function () {
   if (soKM < 19) {
     document.getElementById("tt_2").innerHTML = "0 VND";
     document.getElementById("tt_3").innerHTML = "0 VND";
-  } 
+  }
   //in hoá đơn
   var hoaDon = document.getElementById("inHoaDon");
   console.log(hoaDon);
@@ -290,7 +290,15 @@ tinhTien.onclick = function () {
     ).innerHTML = `TỔNG TIỀN:  ${formatTongTienXe} VND`;
   };
 };
-
+//in hoá đơn
+var hoaDon = document.getElementById("inHoaDon");
+console.log(hoaDon);
+hoaDon.onclick = function () {
+  //đưa kết quả lên giao diện
+  document.getElementById("divThanhTien").style.display = "block";
+  document.getElementById("xuatTien").innerHTML =
+    "Xin bạn hãy nhập dữ liệu và bấm nút Tính tiền trước khi in hoá đơn";
+};
 // Tạo ra một hàm giúp kiểm tra và trả về giá tiền của km đầu tiên
 
 function TienKmDauTien(loaiXe) {
