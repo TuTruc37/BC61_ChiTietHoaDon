@@ -97,10 +97,10 @@ tinhTien.onclick = function () {
   //số lần thời gian chờ
   function soLanTime(soThoiGianCho) {
     var soLan = 0;
-    if (soThoiGianCho % 3 !== 0) {
-      soLan = Math.floor(soThoiGianCho / 3) + 1;
-    } else {
+    if (soThoiGianCho >= 3) {
       soLan = Math.floor(soThoiGianCho / 3);
+    } else {
+      soLan = 0;
     }
 
     return soLan;
@@ -192,10 +192,10 @@ tinhTien.onclick = function () {
           currency: "VND",
         }) + "VND";
       document.getElementById("tg_4").innerHTML =
-        soThoiGianCho.toLocaleString({
+        soLanThoiGian.toLocaleString({
           style: "currency",
-          currency: "phut",
-        }) + "phut";
+          currency: " Lần",
+        }) + " Lần";
       document.getElementById("tg_2").innerHTML =
         thoiGianChoDoi.toLocaleString({
           style: "currency",
@@ -224,10 +224,11 @@ tinhTien.onclick = function () {
           currency: "VND",
         }) + "VND";
       document.getElementById("tg_4").innerHTML =
-        soThoiGianCho.toLocaleString({
+        soLanThoiGian.toLocaleString({
           style: "currency",
-          currency: "phut",
-        }) + "phut";
+          currency: " Lần",
+        }) + " Lần";
+
       document.getElementById("tg_2").innerHTML =
         thoiGianChoDoi.toLocaleString({
           style: "currency",
@@ -265,10 +266,10 @@ tinhTien.onclick = function () {
           currency: "VND",
         }) + "VND";
       document.getElementById("tg_4").innerHTML =
-        soThoiGianCho.toLocaleString({
+        soLanThoiGian.toLocaleString({
           style: "currency",
-          currency: "phut",
-        }) + "phut";
+          currency: " Lần",
+        }) + " Lần";
       document.getElementById("tg_2").innerHTML =
         thoiGianChoDoi.toLocaleString({
           style: "currency",
@@ -361,8 +362,7 @@ function updateKm(soKM) {
   }
   if (remainingKm >= 18) {
     remainingKm = 18;
-  }
-  else if (remainingKm3 > 19) {
+  } else if (remainingKm3 > 19) {
     sd3.innerHTML = remainingKm3;
   } else {
     remainingKm3 = 0;
@@ -378,4 +378,4 @@ function updateKm(soKM) {
       currency: "KM",
     }) + "KM";
 }
-//chú ý là mỗi lần đổi 1 sự lựa chọn xe thì reset lại trang trước nếu không sẽ trùng số liệu cũ 
+
